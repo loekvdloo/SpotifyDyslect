@@ -8,6 +8,12 @@ namespace SpotifyDyslect
 
         static void Main()
         {
+            Artist artist = new Artist("The Weeknd");
+            Song song1 = new Song("Blinding Lights", 200, artist);
+            Song song2 = new Song("Save Your Tears", 210, artist);
+            Album album = new Album("After Hours", artist);
+            album.AddSong(song1);
+            album.AddSong(song2);
             string Friends = "Vrienden: \n" +
             "1. Jan\n" +
             "2. Piet\n" +
@@ -52,7 +58,21 @@ namespace SpotifyDyslect
 
                         break;
                     case "4":
-
+                        Console.WriteLine($"\nAlbum: {album.Title} - door {album.Artist.Name}");
+                        album.DisplaySongs();
+                        Console.Write("Kies een nummer om af te spelen: ");
+                        if (int.TryParse(Console.ReadLine(), out int index))
+                        {
+                            Song gekozenLied = album.GetSong(index - 1);
+                            if (gekozenLied != null)
+                            {
+                                gekozenLied.Play();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ongeldig nummer.");
+                            }
+                        }
                         break;
                     case "5":
 

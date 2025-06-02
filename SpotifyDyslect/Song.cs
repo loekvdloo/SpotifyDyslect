@@ -9,10 +9,7 @@
         Title = title;
         DurationSeconds = durationSeconds;
         Artist = artist;
-<<<<<<< HEAD
-=======
-        
->>>>>>> album
+
     }
 
     public void Play()

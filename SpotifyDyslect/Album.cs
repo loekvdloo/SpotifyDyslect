@@ -31,4 +31,3 @@ class Album
         return null;
     }
 }
-}
