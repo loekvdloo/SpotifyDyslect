@@ -5,8 +5,15 @@ namespace SpotifyDyslect
     class program
     {
 
+
         static void Main()
         {
+            string Friends = "Vrienden: \n" +
+            "1. Jan\n" +
+            "2. Piet\n" +
+            "3. Klaas\n" +
+            "4. Kees\n" +
+            "5. Henk\n";
             string pauzePlay = "pauze";
             Boolean isPlaying = true;
             while (isPlaying)
@@ -54,7 +61,7 @@ namespace SpotifyDyslect
 
                         break;
                     case "7":
-
+                        Console.WriteLine(Friends);
                         break;
                     case "8":
 
