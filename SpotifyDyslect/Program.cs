@@ -4,17 +4,66 @@ namespace SpotifyDyslect
 {
     class program
     {
+
         static void Main()
         {
-            Console.WriteLine("Welkom bij SpotifyDyslect");
-            Console.WriteLine("Maak uw keuze");
-            Console.WriteLine("1. Bekijk albums");
-            Console.WriteLine("2. Maak playlist");
-            Console.WriteLine("3. Bekijk playlisten");
-            Console.WriteLine("4. Bekijk vrienden");
-            Console.WriteLine("5. Vergelijk playlisten met vrienden");
-            Console.WriteLine("6. afsluiten");
+            string pauzePlay = "pauze";
+            Boolean isPlaying = true;
+            while (isPlaying)
+            {
+                Console.WriteLine("Welkom bij SpotifyDyslect");
+                Console.WriteLine("Maak uw keuze");
+                Console.Write("1. terug ");
+                Console.Write("2. " + pauzePlay);
+                Console.WriteLine(" 3. verder");
+                Console.WriteLine("4. Bekijk albums");
+                Console.WriteLine("5. Maak playlist");
+                Console.WriteLine("6. Bekijk playlisten");
+                Console.WriteLine("7. Bekijk vrienden");
+                Console.WriteLine("8. Vergelijk playlisten met vrienden");
+                Console.WriteLine("9. afsluiten");
 
+                var inputMain = Console.ReadLine();
+
+                switch (inputMain)
+                {
+                    case "1":
+
+                        break;
+                    case "2":
+                        if (pauzePlay == "pauze")
+                        {
+                            pauzePlay = "play";
+                        }
+                        else
+                        {
+                            pauzePlay = "pauze";
+                        }
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                    case "6":
+
+                        break;
+                    case "7":
+
+                        break;
+                    case "8":
+
+                        break;
+                    case "9":
+
+                        break;
+                }
+            }
 
 
         }
