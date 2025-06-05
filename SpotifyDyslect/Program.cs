@@ -75,11 +75,13 @@ namespace SpotifyDyslect
                         }
                         break;
                     case "5":
-
+                        Playlist.CreatePlaylist();
                         break;
+
                     case "6":
-
+                        Playlist.DisplayPlaylists();
                         break;
+
                     case "7":
                         Console.WriteLine(Friends);
                         break;
@@ -87,8 +89,10 @@ namespace SpotifyDyslect
 
                         break;
                     case "9":
-
+                        Console.WriteLine("Tot ziens!");
+                        isPlaying = false;
                         break;
+
                 }
             }
 

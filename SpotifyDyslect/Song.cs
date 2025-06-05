@@ -14,6 +14,7 @@
 
     public void Play()
     {
+
         Console.WriteLine($"\n🎵 Nu speelt: '{Title}' van {Artist.Name} ({DurationSeconds} sec)");
     }
 }
