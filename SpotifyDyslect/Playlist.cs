@@ -1,39 +1,71 @@
 using System;
 using System.Collections.Generic;
 
-public class Playlist
+namespace SpotifyDyslect
 {
-    private  List<string> playlists = new List<string>();
-
-    public void CreatePlaylist()
+    public class Playlist
     {
-        Console.Write("Voer een naam in voor je nieuwe playlist: ");
-        string naam = Console.ReadLine();
+        // Dictionary met playlistnaam en lijst van songs
+        private Dictionary<string, List<Song>> playlists;
 
-        if (!string.IsNullOrWhiteSpace(naam))
+        public Playlist()
         {
-            playlists.Add(naam);
-            Console.WriteLine($"Playlist '{naam}' is aangemaakt!");
+            playlists = new Dictionary<string, List<Song>>(StringComparer.OrdinalIgnoreCase);
         }
-        else
-        {
-            Console.WriteLine("Ongeldige naam. Playlist is niet aangemaakt.");
-        }
-    }
 
-    public void DisplayPlaylists()
-    {
-        if (playlists.Count == 0)
+        public void CreatePlaylist(string name)
         {
-            Console.WriteLine("Er zijn nog geen playlists aangemaakt.");
-        }
-        else
-        {
-            Console.WriteLine("Playlists:");
-            for (int i = 0; i < playlists.Count; i++)
+            if (!string.IsNullOrWhiteSpace(name))
             {
-                Console.WriteLine($"{i + 1}. {playlists[i]}");
+                if (!playlists.ContainsKey(name))
+                {
+                    playlists.Add(name, new List<Song>());
+                    Console.WriteLine($"Playlist '{name}' is aangemaakt!");
+                }
+                else
+                {
+                    Console.WriteLine("Playlist bestaat al.");
+                }
             }
+            else
+            {
+                Console.WriteLine("Ongeldige naam. Playlist is niet aangemaakt.");
+            }
+        }
+
+        public void DisplayPlaylists()
+        {
+            if (playlists.Count == 0)
+            {
+                Console.WriteLine("Er zijn nog geen playlists aangemaakt.");
+            }
+            else
+            {
+                Console.WriteLine("Playlists:");
+                int i = 1;
+                foreach (var pl in playlists.Keys)
+                {
+                    Console.WriteLine($"{i}. {pl}");
+                    i++;
+                }
+            }
+        }
+
+        public bool AddSongToPlaylist(string playlistName, Song song)
+        {
+            if (playlists.ContainsKey(playlistName))
+            {
+                playlists[playlistName].Add(song);
+                return true;
+            }
+            return false;
+        }
+
+        public List<Song> GetSongsFromPlaylist(string playlistName)
+        {
+            if (playlists.ContainsKey(playlistName))
+                return playlists[playlistName];
+            return null;
         }
     }
 }

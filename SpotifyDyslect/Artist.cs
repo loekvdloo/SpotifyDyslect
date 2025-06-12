@@ -1,9 +1,12 @@
-class Artist
+namespace SpotifyDyslect
 {
-    public string Name { get; private set; }
-
-    public Artist(string name)
+    public class Artist
     {
-        Name = name;
+        public string Name { get; private set; }
+
+        public Artist(string name)
+        {
+            Name = name;
+        }
     }
 }
