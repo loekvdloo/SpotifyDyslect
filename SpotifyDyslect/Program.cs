@@ -23,13 +23,14 @@ namespace SpotifyDyslect
             "5. Henk\n";
             string pauzePlay = "pauze";
             Boolean isPlaying = true;
+            Song huidigNummer = null;
             while (isPlaying)
             {
                 Console.WriteLine("Welkom bij SpotifyDyslect");
                 Console.WriteLine("Maak uw keuze");
                 Console.Write("1. terug ");
                 Console.Write("2. " + pauzePlay);
-                Console.WriteLine(" 3. verder");
+                Console.WriteLine(" 3. herhaal");
                 Console.WriteLine("4. Bekijk albums");
                 Console.WriteLine("5. Maak playlist");
                 Console.WriteLine("6. Bekijk playlisten");
@@ -56,7 +57,15 @@ namespace SpotifyDyslect
 
                         break;
                     case "3":
-
+                        if (huidigNummer != null)
+                        {
+                            Console.WriteLine($"Herhalen: {huidigNummer.Title} door {huidigNummer.Artist.Name}");
+                            huidigNummer.Play();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Er is momenteel geen nummer om te herhalen.");
+                        }
                         break;
                     case "4":
                         Console.WriteLine($"\nAlbum: {album.Title} - door {album.Artist.Name}");
@@ -67,6 +76,7 @@ namespace SpotifyDyslect
                             Song gekozenLied = album.GetSong(index - 1);
                             if (gekozenLied != null)
                             {
+                                huidigNummer = gekozenLied;
                                 gekozenLied.Play();
                             }
                             else
