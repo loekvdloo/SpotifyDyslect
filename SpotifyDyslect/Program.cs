@@ -12,6 +12,7 @@ namespace SpotifyDyslect
             Song song1 = new Song("Blinding Lights", 200, artist);
             Song song2 = new Song("Save Your Tears", 210, artist);
             Album album = new Album("After Hours", artist);
+            Playlist playlist = new Playlist();
             album.AddSong(song1);
             album.AddSong(song2);
             string Friends = "Vrienden: \n" +
@@ -75,11 +76,11 @@ namespace SpotifyDyslect
                         }
                         break;
                     case "5":
-                        Playlist.CreatePlaylist();
+                        playlist.CreatePlaylist();
                         break;
 
                     case "6":
-                        Playlist.DisplayPlaylists();
+                        playlist.DisplayPlaylists();
                         break;
 
                     case "7":

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class Playlist
 {
-    private static List<string> playlists = new List<string>();
+    private  List<string> playlists = new List<string>();
 
-    public static void CreatePlaylist()
+    public void CreatePlaylist()
     {
         Console.Write("Voer een naam in voor je nieuwe playlist: ");
         string naam = Console.ReadLine();
@@ -21,7 +21,7 @@ public class Playlist
         }
     }
 
-    public static void DisplayPlaylists()
+    public void DisplayPlaylists()
     {
         if (playlists.Count == 0)
         {
