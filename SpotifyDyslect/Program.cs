@@ -8,13 +8,25 @@ namespace SpotifyDyslect
         static void Main()
         {
             Artist artist = new Artist("The Weeknd");
+            Artist artist1 = new Artist("test artist");
             Song song1 = new Song("Blinding Lights", 200, artist);
             Song song2 = new Song("Save Your Tears", 210, artist);
+            Song song3 = new Song("wat een leuk nummer", 99, artist);
+            Song song4 = new Song("wat een saai nummer", 99, artist1);
+            Song song5 = new Song("wat een grappig  nummer", 99, artist1);
+            Song song6 = new Song("wat een irritant nummer", 99, artist1);
+
+
             Album album = new Album("After Hours", artist);
+            Album album1 = new Album("After Hours", artist1);
             Playlist playlist = new Playlist();
 
             album.AddSong(song1);
             album.AddSong(song2);
+            album.AddSong(song3);
+            album1.AddSong(song4);
+            album1.AddSong(song5);
+            album1.AddSong(song6);
 
             // Vriendenlijst
             string friends = "Vrienden: \n" +
