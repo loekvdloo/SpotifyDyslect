@@ -27,6 +27,7 @@ namespace SpotifyDyslect
             album1.AddSong(song4);
             album1.AddSong(song5);
             album1.AddSong(song6);
+            List<Album> albums = new List<Album> { album, album1 };
 
             // Vriendenlijst
             string friends = "Vrienden: \n" +
@@ -63,26 +64,43 @@ namespace SpotifyDyslect
                 switch (inputMain)
                 {
                     case "1":
-                        Console.WriteLine($"\nAlbum: {album.Title} - door {album.Artist.Name}");
-                        album.DisplaySongs();
-                        Console.Write("Kies een nummer om af te spelen (nummer): ");
-                        if (int.TryParse(Console.ReadLine(), out int albumIndex))
+                        Console.WriteLine("\nBeschikbare albums:");
+                        for (int i = 0; i < albums.Count; i++)
                         {
-                            Song chosenSong = album.GetSong(albumIndex - 1);
-                            if (chosenSong != null)
+                            Console.WriteLine($"{i + 1}. {albums[i].Title} - door {albums[i].Artist.Name}");
+                        }
+
+                        Console.Write("Kies een album (nummer): ");
+                        if (int.TryParse(Console.ReadLine(), out int chosenAlbumIndex) && chosenAlbumIndex > 0 && chosenAlbumIndex <= albums.Count)
+                        {
+                            Album selectedAlbum = albums[chosenAlbumIndex - 1];
+
+                            Console.WriteLine($"\nAlbum: {selectedAlbum.Title} - door {selectedAlbum.Artist.Name}");
+                            selectedAlbum.DisplaySongs();
+
+                            Console.Write("Kies een nummer om af te spelen (nummer): ");
+                            if (int.TryParse(Console.ReadLine(), out int songIndex))
                             {
-                                currentSong = chosenSong;
-                                currentSong.Play();
-                                isPaused = false;
+                                Song chosenSong = selectedAlbum.GetSong(songIndex - 1);
+                                if (chosenSong != null)
+                                {
+                                    currentSong = chosenSong;
+                                    currentSong.Play();
+                                    isPaused = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Ongeldig nummer.");
+                                }
                             }
                             else
                             {
-                                Console.WriteLine("Ongeldig nummer.");
+                                Console.WriteLine("Ongeldige invoer.");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("Ongeldige invoer.");
+                            Console.WriteLine("Ongeldig album gekozen.");
                         }
                         break;
 
